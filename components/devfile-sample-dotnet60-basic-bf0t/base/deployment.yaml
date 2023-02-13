@@ -23,7 +23,7 @@ spec:
         app.kubernetes.io/instance: devfile-sample-dotnet60-basic-bf0t
     spec:
       containers:
-      - image: quay.io/redhat-appstudio/user-workload:mreid1-tenant-devfile-sample-dotnet60-basic-bf0t
+      - image: quay.io/redhat-appstudio/user-workload@sha256:5e4d7843a1d9d2e494726659e5691338e5f8236e83e6aa5887c05037a04753fd
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -40,6 +40,9 @@ spec:
           tcpSocket:
             port: 8081
         resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
           requests:
             cpu: 10m
             memory: 100Mi
